@@ -6,5 +6,5 @@ module.exports = function(app) {
   let myjson = require('./controller');
 
   app.route('/')
-    .get(jsonku.index);
+    .get(myjson.index);
 }
