@@ -1,0 +1,24 @@
+{
+  "name": "nodejsrestapi",
+  "version": "1.0.0",
+  "description": "learn to make restapi with node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19damah23/nodejsrestapi.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": "muchamad agus hermawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19damah23/nodejsrestapi/issues"
+  },
+  "homepage": "https://github.com/19damah23/nodejsrestapi#readme"
+}
