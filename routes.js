@@ -10,4 +10,7 @@ module.exports = function(app) {
 
   app.route('/view')
     .get(myjson.showAll);
+
+  app.route('/view/:id')
+    .get(myjson.show);
 }

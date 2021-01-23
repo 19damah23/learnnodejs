@@ -17,3 +17,16 @@ exports.showAll = function(req, res) {
     }
   });
 }
+
+// displays student data based on id
+exports.show = function(req, res) {
+  let id = req.params.id;
+  connection.query("SELECT * FROM students WHERE id = ?", [id],
+   function(error, rows, fields) {
+     if (error) {
+       console.log(error);
+     } else {
+       response.ok(rows, res);
+     }
+   });
+}
