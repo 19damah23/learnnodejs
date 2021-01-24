@@ -30,3 +30,19 @@ exports.show = function(req, res) {
      }
    });
 }
+
+// add data to the student table
+exports.add = function(req, res) {
+  let nis = req.body.nis;
+  let name = req.body.name;
+  let majors = req.body.majors;
+
+  connection.query("INSERT INTO students (nis, name, majors) VALUES (?, ?, ?)", [nis, name, majors],
+    function(error, rows, fields) {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok('Data berhasil ditambahkan', res);
+      }
+    });
+}

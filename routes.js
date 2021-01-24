@@ -13,4 +13,7 @@ module.exports = function(app) {
 
   app.route('/view/:id')
     .get(myjson.show);
+
+  app.route('/add')
+    .post(myjson.add);
 }
