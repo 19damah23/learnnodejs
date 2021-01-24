@@ -16,4 +16,7 @@ module.exports = function(app) {
 
   app.route('/add')
     .post(myjson.add);
+
+  app.route('/edit')
+    .put(myjson.edit);
 }

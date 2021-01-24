@@ -46,3 +46,20 @@ exports.add = function(req, res) {
       }
     });
 }
+
+// edit data student
+exports.edit = function(req, res) {
+ let id = req.body.id;
+ let nis = req.body.nis;
+ let name = req.body.name;
+ let majors = req.body.majors;
+
+ connection.query('UPDATE students SET nis=?, name=?, majors=? WHERE id=?', [nis, name, majors, id],
+ function(error, rows, fields) {
+   if (error) {
+     console.log(error);
+   } else {
+     response.ok('Data berhasil diubah', res);
+   }
+ });
+}
