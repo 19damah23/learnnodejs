@@ -63,3 +63,27 @@ exports.edit = function(req, res) {
    }
  });
 }
+
+exports.delete = function(req, res) {
+  let id = req.body.id;
+  
+  connection.query('DELETE FROM students WHERE id=?', [id],
+  function(error) {
+    if (error) {
+      console.log(error);
+    } else {
+      response.ok('Data berhasil dihapus', res);
+    }
+  });
+}
+
+exports.nestedMajors = function(req, res) {
+  connection.query('SELECT students.id, students.name, students.nis, students.majors, majors.major, majors.sks FROM krs JOIN majors JOIN students WHERE krs.id_students=students.id AND krs.id_majors=majors.id ORDER BY students.id',
+  function(error, rows, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      response.nestedOk(rows, res);
+    }
+  });
+}

@@ -19,4 +19,10 @@ module.exports = function(app) {
 
   app.route('/edit')
     .put(myjson.edit);
+
+  app.route('/delete')
+    .delete(myjson.delete);
+
+  app.route('/nestedmajors')
+    .get(myjson.nestedMajors);
 }
