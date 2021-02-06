@@ -7,31 +7,31 @@ let config = require('../config/secret')
 let ip = require('ip')
 
 // controller for register
-exports.register = function(req, res) {
+exports.registration = function (req, res) {
   let post = {
     username: req.body.username,
     email: req.body.email,
     password: md5(req.body.password),
     role: req.body.role,
-    created_at: new Date();
+    created_at: new Date()
   }
 
-  let query = "SELECT email FROM ?? WHERE ??";
-  let table = ["user", "email", post.email];
+  let query = "SELECT email FROM ?? WHERE ??=?";
+  let table = ["users", "email", post.email];
 
   query = mysql.format(query, table);
 
-  connection.query(query, function(error, rows) {
+  connection.query(query, function (error, rows) {
     if (error) {
       console.log(error);
     } else {
       if (rows.length == 0) {
-        let query = "INSERT INTO ?? SET ??";
-        let table = ["user"];
+        let query = "INSERT INTO ?? SET ?";
+        let table = ["users"];
 
         query = mysql.format(query, table);
 
-        connection.query(query, post, function(error, rows) {
+        connection.query(query, post, function (error, rows) {
           if (error) {
             console.log(error);
           } else {
@@ -39,7 +39,7 @@ exports.register = function(req, res) {
           }
         });
       } else {
-        response.ok("email already exists!");
+        response.ok("email already exists!", res);
       }
     }
   })
